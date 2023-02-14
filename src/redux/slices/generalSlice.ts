@@ -154,6 +154,7 @@ export const createAuthor = createAsyncThunk<
     mutableBody.author_uid = mutableBody.id;
     mutableBody.username = mutableBody.email;
     const { data } = await axiosInstance.post("/authors/signup", mutableBody);
+    console.log(data);
     return data as AuthorResponsePayload;
   } catch (error) {
     return error as AxiosError;
