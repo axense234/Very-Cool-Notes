@@ -45,7 +45,7 @@ const AuthForm: React.FC<Auth> = ({ type }) => {
   // Handle Sign Up/Login
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submit lol", type);
+    console.log("submit lol", type, tempAuthDetails);
 
     const { password } = tempAuthDetails;
 
@@ -60,6 +60,7 @@ const AuthForm: React.FC<Auth> = ({ type }) => {
       // LOGIN
       dispatch(loginAuthor(tempAuthDetails));
     } else if (type === "signup") {
+      console.log("my man entered");
       dispatch(createAuthor(tempAuthDetails));
     }
   };
