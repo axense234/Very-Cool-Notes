@@ -151,7 +151,7 @@ export const createAuthor = createAsyncThunk<
   AuthorType
 >("/authors/createAuthor", async (mutableBody) => {
   try {
-    console.log("try me");
+    console.log("try me", mutableBody);
     mutableBody.author_uid = mutableBody.id;
     mutableBody.username = mutableBody.email;
     const { data } = await axiosInstance.post("/authors/signup", mutableBody);
