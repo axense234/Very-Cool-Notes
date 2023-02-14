@@ -1,7 +1,6 @@
 // React
 import { useEffect, useState } from "react";
 // Redux Toolkit
-import { nanoid } from "@reduxjs/toolkit";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import {
   createAuthor,
@@ -30,7 +29,6 @@ const AuthForm: React.FC<Auth> = ({ type }) => {
     email: "",
     password: "",
     username: "Default Username",
-    id: nanoid(40),
   });
 
   // On Change Handlers
