@@ -340,6 +340,8 @@ const generalSlice = createSlice({
         const { author } = action.payload as AuthorResponsePayload;
         const { response } = action.payload as AxiosError;
 
+        console.log(author, response);
+
         // EMAIL ALREADY EXISTS
         if (response && response.statusText === "Bad Request") {
           state.authFormModal = {
@@ -394,6 +396,8 @@ const generalSlice = createSlice({
       .addCase(getProfile.fulfilled, (state, action) => {
         const { author } = action.payload as AuthorResponsePayload;
         const { response } = action.payload as AxiosError;
+
+        console.log(author, response);
 
         if (
           response &&
