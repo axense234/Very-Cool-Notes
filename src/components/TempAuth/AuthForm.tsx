@@ -45,7 +45,7 @@ const AuthForm: React.FC<Auth> = ({ type }) => {
   // Handle Sign Up/Login
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("submit lol");
+    console.log("submit lol", type);
 
     const { password } = tempAuthDetails;
 
