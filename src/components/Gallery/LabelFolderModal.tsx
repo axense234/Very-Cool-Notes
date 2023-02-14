@@ -12,7 +12,6 @@ import { updateFolderById } from "../../redux/slices/foldersSlice";
 import {
   selectFolderLabel,
   selectProfile,
-  selectSelectedFolder,
   selectShowLabelFolderModal,
   setFolderLabel,
   setShowLabelFolderModal,

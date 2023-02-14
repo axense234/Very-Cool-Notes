@@ -8,6 +8,8 @@ import {
 import { AxiosError } from "axios";
 import { MouseEventHandler } from "react";
 
+// NOTE TO SELF: NEED TO ORGANIZE THOSE IN LATER VERSIONS AS AN IMPROVEMENT
+
 interface TempProfileProps {
   type: "individual-author" | "profile";
   id?: string;

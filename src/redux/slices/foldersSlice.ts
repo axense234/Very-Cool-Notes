@@ -1,3 +1,4 @@
+// Redux Toolkit
 import {
   createAsyncThunk,
   createEntityAdapter,
@@ -37,7 +38,6 @@ export const getAllFolders = createAsyncThunk<
     );
     return data as FolderResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -50,7 +50,6 @@ export const getFolderById = createAsyncThunk<
     const { data } = await axiosInstance.get(`/folders/${id}`);
     return data as FolderResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -63,7 +62,6 @@ export const deleteFolderById = createAsyncThunk<
     const { data } = await axiosInstance.delete(`folders/delete/${id}`);
     return data as FolderResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -73,14 +71,12 @@ export const updateFolderById = createAsyncThunk<
   FolderType
 >("folders/updateFolderById", async (mutableBody) => {
   try {
-    console.log(mutableBody);
     const { data } = await axiosInstance.patch(
       `/folders/update/${mutableBody.folder_uid}`,
       mutableBody
     );
     return data as FolderResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -93,7 +89,6 @@ export const createFolder = createAsyncThunk<
     const { data } = await axiosInstance.post(`folders/create`, mutableBody);
     return data as FolderResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });

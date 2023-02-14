@@ -2,7 +2,9 @@
 import "../../scss/components/Modals/AuthFormModal.scss";
 // React Icons
 import { GoTriangleDown } from "react-icons/go";
-import { useEffect, useRef } from "react";
+// React
+import { useRef } from "react";
+// Hooks
 import useModalTransition from "../../hooks/useModalTransition";
 
 interface AuthFormModalProps {

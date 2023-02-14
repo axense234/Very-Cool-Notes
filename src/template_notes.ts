@@ -1,3 +1,4 @@
+// TS
 import { NoteType } from "./types";
 
 const templateNotes: NoteType[] = [

@@ -59,7 +59,7 @@ const OverlayModal: React.FC<OverlayModalProps> = ({ timer }) => {
         dispatch(setSelectedShownFolder("home"));
         break;
       default:
-        console.log("man what are you doing");
+        throw new Error("Invalid overlay on confirmation function.");
     }
   };
 

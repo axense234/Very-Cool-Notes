@@ -1,6 +1,11 @@
+// Redux Toolkit
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+// AXIOS
 import axios, { AxiosError } from "axios";
+import axiosInstance from "../../utils/axios";
+// Config
 import { siteUrl } from "../../config";
+// TS
 import {
   AuthorType,
   AuthorResponsePayload,
@@ -17,7 +22,7 @@ import {
   AddNoteToFolder,
   getAllNotesParamsType,
 } from "../../types";
-import axiosInstance from "../../utils/axios";
+// STORE STATE
 import { State } from "../api/store";
 
 type initialStateType = {
@@ -331,9 +336,6 @@ const generalSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(createAuthor.pending, (state, action) => {
-        console.log("create pending");
-      })
       .addCase(createAuthor.fulfilled, (state, action) => {
         const { author } = action.payload as AuthorResponsePayload;
         const { response } = action.payload as AxiosError;
@@ -353,12 +355,7 @@ const generalSlice = createSlice({
           window.location.href = "/home";
         }
       })
-      .addCase(createAuthor.rejected, (state, action) => {
-        console.log("create rejected");
-      })
-      .addCase(loginAuthor.pending, (state, action) => {
-        console.log("login pending");
-      })
+
       .addCase(loginAuthor.fulfilled, (state, action) => {
         const { author } = action.payload as AuthorResponsePayload;
         const { response } = action.payload as AxiosError;
@@ -390,9 +387,6 @@ const generalSlice = createSlice({
           state.profile = author;
           window.location.href = "/home";
         }
-      })
-      .addCase(loginAuthor.rejected, (state, action) => {
-        console.log("login rejected");
       })
       .addCase(getProfile.pending, (state, action) => {
         state.loadingProfile = "PENDING";

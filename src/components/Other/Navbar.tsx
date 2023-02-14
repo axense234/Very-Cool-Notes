@@ -1,5 +1,9 @@
 // React Router
 import { Link, useNavigate } from "react-router-dom";
+// SCSS
+import "../../scss/components/Navbar/Navbar.scss";
+// Components
+import Logo from "../Logos/Logo";
 // Redux
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import {
@@ -8,10 +12,6 @@ import {
   setSearchResultsQuery,
 } from "../../redux/slices/generalSlice";
 import { getNotes } from "../../redux/slices/notesSlice";
-// SCSS
-import "../../scss/components/Navbar/Navbar.scss";
-// Components
-import Logo from "../Logos/Logo";
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();

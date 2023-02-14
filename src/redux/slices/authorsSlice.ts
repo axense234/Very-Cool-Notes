@@ -1,3 +1,4 @@
+// Redux Toolkit
 import {
   createEntityAdapter,
   createSlice,
@@ -13,9 +14,9 @@ import { State } from "../api/store";
 import {
   AuthorType,
   AuthorResponsePayload,
-  ModalType,
   AuthorUpdateType,
 } from "../../types";
+// Config
 import { siteUrl } from "../../config";
 
 const authorsAdapter = createEntityAdapter<AuthorType>({
@@ -42,7 +43,6 @@ export const getAuthors = createAsyncThunk<AuthorResponsePayload | AxiosError>(
       );
       return data as AuthorResponsePayload;
     } catch (error) {
-      console.log(error);
       return error as AxiosError;
     }
   }
@@ -58,7 +58,6 @@ export const getAuthor = createAsyncThunk<
     );
     return data as AuthorResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -73,7 +72,6 @@ export const deleteAuthor = createAsyncThunk<
     );
     return data as AuthorResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -83,7 +81,6 @@ export const updateAuthor = createAsyncThunk<
   AuthorUpdateType
 >("/authors/updateAuthor", async (mutableBody) => {
   try {
-    console.log(mutableBody);
     const { data } = await axiosInstance.patch(
       `/authors/update/${mutableBody.id}?includeCreatedNotes=true`,
 
@@ -91,7 +88,6 @@ export const updateAuthor = createAsyncThunk<
     );
     return data as AuthorResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });

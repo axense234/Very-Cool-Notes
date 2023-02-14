@@ -1,6 +1,6 @@
-// SCSS
-import TempNotePage from "../components/Note/TempNotePage";
 // Components
+import TempNotePage from "../components/Note/TempNotePage";
+// SCSS
 import "../scss/components/Note/IndNote.scss";
 
 const IndNote: React.FC = () => {

@@ -1,3 +1,4 @@
+// Redux Toolkit
 import {
   createAsyncThunk,
   createEntityAdapter,
@@ -5,7 +6,7 @@ import {
   EntityState,
 } from "@reduxjs/toolkit";
 // AXIOS
-import axios, { Axios, AxiosError } from "axios";
+import { AxiosError } from "axios";
 import axiosInstance from "../../utils/axios";
 // REDUX STORE
 import { State } from "../api/store";
@@ -34,7 +35,6 @@ export const getAllCategories = createAsyncThunk<
     const { data } = await axiosInstance.get("/categories");
     return data as CategoryResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -47,7 +47,6 @@ export const getCategoryByName = createAsyncThunk<
     const { data } = await axiosInstance.get(`categoires/${name}`);
     return data as CategoryResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -60,7 +59,6 @@ export const deleteCategoryByName = createAsyncThunk<
     const { data } = await axiosInstance.delete(`categories/delete/${name}`);
     return data as CategoryResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -75,7 +73,6 @@ export const updateCategoryByName = createAsyncThunk<
     );
     return data as CategoryResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -91,7 +88,6 @@ export const createCategory = createAsyncThunk<
     );
     return data as CategoryResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });

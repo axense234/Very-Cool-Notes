@@ -1,5 +1,3 @@
-// React
-import { useEffect } from "react";
 // SCSS
 import "../scss/components/Home/Home.scss";
 // Components

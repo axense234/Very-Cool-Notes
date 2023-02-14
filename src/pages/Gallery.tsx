@@ -7,19 +7,16 @@ import TempTitlePage from "../components/Other/TempTitlePage";
 import GalleryOptions from "../components/Gallery/GalleryOptions";
 import GalleryFolders from "../components/Gallery/GalleryFolders";
 import GalleryNotes from "../components/Gallery/GalleryNotes";
+import OverlayModal from "../components/Modals/OverlayModal";
 // Redux
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import {
-  selectProfile,
-  selectSelectedFolder,
-} from "../redux/slices/generalSlice";
+import { selectProfile } from "../redux/slices/generalSlice";
 import {
   getAllFolders,
   selectAllFolders,
   selectLoadingFolders,
 } from "../redux/slices/foldersSlice";
 import { getNotes, selectLoadingNotes } from "../redux/slices/notesSlice";
-import OverlayModal from "../components/Modals/OverlayModal";
 
 const Gallery: React.FC = () => {
   const dispatch = useAppDispatch();
