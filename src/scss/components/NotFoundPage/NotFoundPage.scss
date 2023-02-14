@@ -1,0 +1,33 @@
+@use "../../abstracts" as *;
+
+.notfound-container {
+  @include flexCenter(column);
+  @include pageLayout();
+  justify-content: flex-start;
+
+  h1 {
+    font-size: 10rem;
+    text-align: center;
+    letter-spacing: 6rem;
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      font-size: 5rem;
+      letter-spacing: 3rem;
+    }
+  }
+
+  p {
+    font-size: 3rem;
+    width: 50%;
+
+    @media all and (max-width: mediaScreenSize("laptopL")) {
+      width: 75%;
+    }
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      font-size: 1.5rem;
+    }
+    @media all and (max-width: mediaScreenSize("mobileM")) {
+      width: 90%;
+    }
+  }
+}

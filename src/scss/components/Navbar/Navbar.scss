@@ -1,0 +1,123 @@
+@use "../../abstracts" as *;
+
+.navbar-container {
+  @include flexCenter(row);
+  justify-content: space-evenly;
+  background-color: color(secondary);
+  width: 100%;
+  height: 6.25rem;
+  padding: 0 2rem;
+
+  @media all and (max-width: mediaScreenSize("laptopL")) {
+    gap: 2rem;
+  }
+
+  @media all and (max-width: mediaScreenSize("mobileL")) {
+    gap: 0;
+    padding: 0 1rem;
+  }
+
+  @media all and (max-width: mediaScreenSize("mobileM")) {
+    gap: 0;
+    padding: 0 0.5rem;
+  }
+
+  .main-logo {
+    margin-right: auto;
+  }
+  #{&}__wrapper {
+    @include flexCenter(row);
+    justify-content: space-between;
+    width: 62.5%;
+
+    @media all and (max-width: mediaScreenSize("laptopL")) {
+      width: min-content;
+      gap: 2rem;
+    }
+
+    @media all and (max-width: mediaScreenSize("mobileL")) {
+      gap: 0.5rem;
+    }
+  }
+
+  #{&}__control {
+    @include flexCenter(row);
+    width: 25rem;
+
+    @media all and (max-width: mediaScreenSize("laptopL")) {
+      display: none;
+    }
+
+    input {
+      border: 2px solid color(primary);
+      border-radius: 0.7rem;
+      font-size: 1.1rem;
+      background-color: color(silvery);
+      height: 2.3rem;
+      width: 100%;
+      padding-left: 0.5rem;
+      padding-right: 2.25rem;
+
+      &::placeholder {
+        color: black;
+        letter-spacing: 0.1rem;
+        font-weight: bolder;
+      }
+    }
+
+    label {
+      @include flexCenter(row);
+      margin-left: -2rem;
+    }
+  }
+
+  #{&}__links {
+    @include flexCenter(row);
+    gap: 1rem;
+
+    @media all and (max-width: mediaScreenSize("laptopL")) {
+      margin-left: auto;
+    }
+
+    @media all and (max-width: mediaScreenSize("mobileM")) {
+      gap: 0.25rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: color(primary);
+      font-size: 0.75rem;
+      border-radius: 1rem;
+      padding: 0.2rem;
+
+      @media all and (max-width: mediaScreenSize("tablet")) {
+        font-size: 0.5rem;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  #{&}__profile {
+    @include flexCenter(row);
+    gap: 1rem;
+    text-decoration: none;
+
+    h2 {
+      font-size: 1rem;
+      color: color(primary);
+      letter-spacing: 0.1rem;
+
+      @media all and (max-width: mediaScreenSize("tablet")) {
+        display: none;
+      }
+    }
+
+    img {
+      border: 3px solid color(primary);
+      border-radius: 50%;
+    }
+  }
+}

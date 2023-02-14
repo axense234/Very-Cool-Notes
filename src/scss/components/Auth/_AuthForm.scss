@@ -1,0 +1,271 @@
+@use "../../abstracts" as *;
+
+.auth-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 28rem;
+  height: 100%;
+  background-color: color(secondary);
+
+  @media all and (max-width: mediaScreenSize("laptop")) {
+    width: 100%;
+  }
+
+  #{&}__container {
+    @include flexCenter(row);
+    align-self: center;
+    margin-top: 1.5rem;
+    min-width: 25rem;
+
+    @media all and (max-width: 400px) {
+      padding-left: 0.75rem;
+    }
+  }
+}
+
+.auth-sidebar-content-wrapper {
+  @include flexCenter(column);
+  align-self: center;
+
+  @media all and (max-width: 450px) {
+    align-self: flex-start;
+    margin-right: auto;
+  }
+}
+
+.main-sideline {
+  width: 5px;
+  height: 100%;
+  background-color: color(primary);
+  border: none;
+
+  @media all and (max-width: 400px) {
+    display: none;
+  }
+}
+
+#bottom-sideline {
+  @extend .main-sideline;
+  align-self: center;
+  height: 5px;
+  width: 100%;
+
+  @media all and (max-width: 400px) {
+    display: none;
+  }
+}
+
+.auth-sidebar__content {
+  @include flexCenter(column);
+  align-self: flex-start;
+  width: 100%;
+}
+
+// FIRST SECTION
+.auth-sidebar__first-section {
+  @include flexCenter(column);
+  width: 100%;
+
+  #{&}__title {
+    @include flexCenter(row);
+    gap: 0.5rem;
+    align-items: flex-start;
+    text-align: start;
+    width: 100%;
+
+    h2 {
+      color: color(primary);
+      font-size: 2.25rem;
+      margin-top: -1.75rem;
+      letter-spacing: 3.6px;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media all and (max-width: 400px) {
+        margin-left: 0;
+      }
+    }
+
+    hr {
+      width: 25%;
+      height: 5px;
+      background-color: color(primary);
+      border: none;
+
+      @media all and (max-width: 400px) {
+        display: none;
+      }
+    }
+  }
+
+  #{&}__controls {
+    @include flexCenter(column);
+    width: 100%;
+    gap: 2rem;
+    width: 100%;
+    margin: 2.5rem 0;
+
+    @media all and (max-width: 400px) {
+      align-items: flex-start;
+    }
+
+    button {
+      @include flexCenter(row);
+      gap: 1rem;
+      width: 75%;
+      border: 3px solid color(primary);
+      border-radius: 0.5rem;
+      font-size: 1.5rem;
+      letter-spacing: 2.4px;
+      height: 3.7rem;
+      background-color: color(silver);
+      transition: transform 0.35s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+// SECOND SECTION
+.auth-sidebar__second-section {
+  @include flexCenter(column);
+  width: 100%;
+  margin-bottom: 1rem;
+
+  @media all and (max-width: 400px) {
+    align-items: flex-start;
+  }
+
+  #{&}__title {
+    @include flexCenter(row);
+    gap: 1rem;
+    width: 100%;
+
+    hr {
+      width: 50%;
+      height: 5px;
+      background-color: color(primary);
+      border: none;
+
+      @media all and (max-width: 400px) {
+        display: none;
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: color(primary);
+
+      @media all and (max-width: 400px) {
+        margin-right: auto;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  #{&}__controls {
+    @include flexCenter(column);
+    width: 100%;
+    gap: 2rem;
+    position: relative;
+
+    @media all and (max-width: 400px) {
+      align-items: flex-start;
+    }
+
+    div {
+      @include flexCenter(column);
+      width: 75%;
+      align-items: flex-start;
+
+      label {
+        font-size: 1.5rem;
+        letter-spacing: 0.15rem;
+        color: color(primary);
+      }
+
+      input {
+        font-size: 1.25rem;
+        border: none;
+        border-radius: 0.35rem;
+        background-color: color(silvery);
+        height: 1.75rem;
+        transition: transform 0.35s;
+        padding: 0.5rem 1rem;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .recaptcha-control {
+      @include flexCenter(column);
+      width: 75%;
+      align-items: center;
+      flex-direction: row;
+      border-radius: 0.35rem;
+      height: 3.5rem;
+      background-color: color(silvery);
+      border: 3px solid color(primary);
+      gap: 0.5rem;
+      transition: transform 0.35s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      label {
+        font-size: 0.9rem;
+        color: black;
+      }
+
+      input {
+        width: 25px;
+      }
+    }
+
+    button {
+      width: 75%;
+      text-align: center;
+      color: color(secondary);
+      border: 3px solid color(primary);
+      background-color: color(silvery);
+      height: 3.5rem;
+      border-radius: 0.35rem;
+      font-weight: bolder;
+      font-size: 1rem;
+      transition: transform 0.35s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  #{&}__other-auth-meth {
+    @include flexCenter(column);
+    width: 75%;
+    margin-top: 1rem;
+    align-items: flex-start;
+
+    p {
+      @include flexCenter(column);
+      align-items: flex-start;
+      color: color(primary);
+
+      a {
+        text-decoration: none;
+        color: darkblue;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

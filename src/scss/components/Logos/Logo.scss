@@ -1,0 +1,26 @@
+@use "../../abstracts" as *;
+
+.main-logo {
+  width: 45%;
+  height: auto;
+  margin: 1rem;
+  max-width: 250px;
+  max-height: 61.5px;
+
+  @media all and (max-width: mediaScreenSize("tablet")) {
+    width: 30%;
+    min-width: 135px;
+  }
+
+  @media all and (max-width: mediaScreenSize("mobileM")) {
+    margin: 0.5rem;
+    margin-right: 1rem;
+  }
+
+  img {
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

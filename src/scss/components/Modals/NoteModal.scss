@@ -1,0 +1,96 @@
+@use "../../abstracts" as *;
+
+.note-modal-container {
+  @include flexCenter(column);
+  border: 1px solid black;
+  border-radius: 1rem;
+  background-color: color(secondary);
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s;
+  position: absolute;
+  margin-right: -15rem;
+  margin-top: -15rem;
+  z-index: 5;
+  padding: 1rem;
+
+  width: 15rem;
+
+  align-items: flex-start;
+  justify-content: space-evenly;
+  gap: 1rem;
+
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+
+  form {
+    @include flexCenter(column);
+  }
+
+  * {
+    background-color: color(primary);
+    border-radius: 0.5rem;
+    padding: 0.45rem;
+    transition: transform 0.3s;
+    width: 100%;
+    text-align: left;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  label {
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  button {
+    background-color: inherit;
+    border: none;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    background-color: color(primary);
+    border-radius: 0.5rem;
+    padding: 0.45rem;
+    width: 100%;
+    text-align: left;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  select {
+    width: 100%;
+    border: 3px solid color(silvery);
+
+    option {
+      background-color: inherit;
+    }
+  }
+}
+
+.note-modal-menu-container {
+  @include flexCenter(row);
+  position: absolute;
+  top: 0.25rem;
+  left: 0.5rem;
+  border-radius: 50%;
+  background-color: color(primary);
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border: 2px solid black;
+
+  svg {
+    color: color(secondary);
+    font-size: 2.5rem;
+  }
+}

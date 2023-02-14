@@ -1,0 +1,82 @@
+@use "../../abstracts" as *;
+
+.overlay-modal-container {
+  @include flexCenter(column);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba($color: color(primary), $alpha: 0.7);
+  display: none;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 5;
+
+  #{&}__buttons {
+    @include flexCenter(row);
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+
+    @media all and (max-width: mediaScreenSize("mobileL")) {
+      padding: 0 1rem;
+    }
+
+    button {
+      padding: 0.5rem 2rem;
+      font-size: 1.25rem;
+      font-weight: 800;
+      border-radius: 0.5rem;
+      background-color: color(primary);
+      transition: transform 0.3s;
+      width: 40%;
+      text-align: center;
+
+      @media all and (max-width: mediaScreenSize("mobileL")) {
+        font-size: 1rem;
+        width: 45%;
+      }
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  #{&}__modal {
+    @include flexCenter(column);
+    border: 1px solid black;
+    background-color: color(secondary);
+    border-radius: 1rem;
+    width: 30%;
+    min-height: 30%;
+    justify-content: space-between;
+    padding: 2rem 1rem;
+    gap: 2rem;
+
+    @media all and (max-width: mediaScreenSize("laptopL")) {
+      width: 50%;
+    }
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      width: 80%;
+    }
+
+    @media all and (max-width: mediaScreenSize("mobileL")) {
+      gap: 0.5rem;
+      width: 90%;
+    }
+
+    p {
+      font-size: 2.5rem;
+      color: color(silvery);
+      text-align: center;
+
+      @media all and (max-width: mediaScreenSize("mobileL")) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

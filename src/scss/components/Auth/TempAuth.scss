@@ -1,0 +1,14 @@
+@forward "./AuthForm";
+@forward "./TempAuthContent";
+@use "../../abstracts" as *;
+
+.temp-auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  background-color: color(primary);
+  bottom: 0;
+  position: fixed;
+}

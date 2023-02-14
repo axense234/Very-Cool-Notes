@@ -1,0 +1,92 @@
+@use "../../abstracts" as *;
+
+.footer-container {
+  @include flexCenter(row);
+  justify-content: space-between;
+  background-color: color(secondary);
+  width: 100%;
+  height: 6.25rem;
+  padding: 0 2rem;
+
+  .main-logo {
+    margin-right: auto;
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      margin-right: 0;
+    }
+  }
+
+  @media all and (max-width: mediaScreenSize("mobileL")) {
+    gap: 0;
+    padding: 0 1rem;
+  }
+
+  @media all and (max-width: mediaScreenSize("mobileM")) {
+    gap: 0;
+    padding: 0 0.5rem;
+  }
+
+  #{&}__info {
+    @include flexCenter(row);
+    gap: 3rem;
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      gap: 1rem;
+    }
+
+    p {
+      color: color(primary);
+      letter-spacing: 0.1rem;
+
+      @media all and (max-width: mediaScreenSize("tablet")) {
+        font-size: 0.5rem;
+      }
+    }
+  }
+
+  #{&}__up {
+    @include flexCenter(row);
+    gap: 1rem;
+
+    @media all and (max-width: mediaScreenSize("mobileL")) {
+      gap: 0.5rem;
+      width: 30%;
+    }
+
+    @media all and (max-width: mediaScreenSize("mobileM")) {
+      width: 20%;
+    }
+
+    a {
+      @include flexCenter(row);
+      border: 2px solid black;
+      border-radius: 50%;
+      background-color: color(primary);
+      text-decoration: none;
+
+      @media all and (max-width: mediaScreenSize("mobileL")) {
+        width: 100%;
+      }
+
+      img {
+        @media all and (max-width: mediaScreenSize("mobileL")) {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    p {
+      color: color(primary);
+      font-size: 1.5rem;
+
+      @media all and (max-width: mediaScreenSize("mobileL")) {
+        font-size: 1rem;
+      }
+
+      @media all and (max-width: mediaScreenSize("mobileM")) {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@forward "./Recommandations";
+@forward "./TempProfile";
+@use "../../abstracts" as *;
+
+.temp-author-page {
+  @include flexCenter(column);
+  width: 100%;
+  min-height: 100%;
+  background-color: color(primary);
+  padding-bottom: 5rem;
+}

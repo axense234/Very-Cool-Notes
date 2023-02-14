@@ -1,0 +1,76 @@
+@use "../../abstracts" as *;
+
+.search-results-container {
+  @include flexCenter(column);
+  @include pageLayout();
+
+  #{&}__title {
+    @include flexCenter(column);
+    align-items: flex-start;
+    gap: 2rem;
+    width: 100%;
+
+    .temp-title-page {
+      align-items: flex-start;
+    }
+  }
+
+  #{&}__options {
+    @include flexCenter(row);
+    justify-content: flex-start;
+    padding: 2rem;
+    gap: 1rem;
+    width: 100%;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: color(secondary);
+
+    label {
+      padding: 0.5rem 1rem;
+      background-color: color(primary);
+      border-radius: 1rem;
+      font-size: 1rem;
+    }
+
+    select {
+      padding: 0.5rem 1rem;
+      background-color: color(silvery);
+      border-radius: 1rem;
+      font-size: 1rem;
+    }
+  }
+
+  #{&}__content {
+    @include flexCenter(column);
+    width: 100%;
+    min-height: 50rem;
+  }
+
+  #{&}__notes {
+    @include flexCenter(row);
+    align-items: flex-start;
+    justify-content: flex-start;
+    list-style: none;
+    gap: 3rem;
+    width: 100%;
+    flex-wrap: wrap;
+
+    #no-notes-found {
+      font-size: 4rem;
+      align-self: flex-start;
+      justify-self: center;
+      text-align: center;
+      width: 100%;
+      margin-bottom: auto;
+    }
+
+    .note-container {
+      width: 100%;
+      height: 35rem;
+    }
+  }
+
+  #{&}__notes-li {
+    width: 30%;
+  }
+}

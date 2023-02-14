@@ -1,0 +1,82 @@
+@use "../../abstracts" as *;
+
+.about-container {
+  @include flexCenter(column);
+  @include pageLayout();
+
+  #{&}__sections {
+    @include flexCenter(column);
+    width: 80%;
+    align-items: flex-start;
+    list-style: none;
+    gap: 5rem;
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      width: 100%;
+    }
+
+    @media all and (max-width: mediaScreenSize("mobileL")) {
+      gap: 2rem;
+    }
+
+    li {
+      width: 100%;
+    }
+  }
+
+  #{&}__section {
+    @include flexCenter(row);
+    width: 100%;
+    justify-content: space-between;
+    min-width: 100%;
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    p {
+      font-size: 2rem;
+      font-weight: bolder;
+      width: 50%;
+
+      @media all and (max-width: mediaScreenSize("laptopL")) {
+        font-size: 1.25rem;
+      }
+
+      @media all and (max-width: mediaScreenSize("tablet")) {
+        width: 75%;
+        font-size: 1rem;
+      }
+
+      @media all and (max-width: mediaScreenSize("mobileM")) {
+        width: 100%;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  #{&}__section-images {
+    @include flexCenter(row);
+    width: 40%;
+    justify-content: space-between;
+
+    img {
+      @media all and (max-width: mediaScreenSize("laptopL")) {
+        width: 75px;
+        height: auto;
+      }
+
+      @media all and (max-width: mediaScreenSize("tablet")) {
+        width: 50px;
+        height: auto;
+      }
+
+      @media all and (max-width: mediaScreenSize("mobileM")) {
+        width: 40px;
+        height: auto;
+      }
+    }
+  }
+}

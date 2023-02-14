@@ -1,0 +1,95 @@
+@use "../../abstracts" as *;
+
+.auth-content {
+  @include flexCenter(column);
+  height: 100%;
+  width: 100%;
+  padding: 0 5.5rem;
+  gap: 4rem;
+
+  @media all and (max-width: mediaScreenSize("laptop")) {
+    display: none;
+  }
+
+  img {
+    @media all and (max-width: 1825px) {
+      width: 80%;
+      height: auto;
+    }
+
+    @media all and (max-width: mediaScreenSize("laptopL")) {
+      width: 60%;
+    }
+
+    @media all and (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  #{&}__title {
+    @include flexCenter(column);
+    width: 50%;
+    margin-bottom: auto;
+    margin-top: 5rem;
+
+    @media all and (max-width: 1825px) {
+      margin-bottom: 3rem;
+    }
+
+    @media all and (max-width: mediaScreenSize("laptopL")) {
+      width: 75%;
+    }
+
+    @media all and (max-width: 1200px) {
+      width: 85%;
+    }
+
+    h1 {
+      font-size: 4rem;
+
+      @media all and (max-width: 1825px) {
+        font-size: 3rem;
+      }
+
+      @media all and (max-width: 1200px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    hr {
+      width: 100%;
+      height: 5px;
+      background-color: black;
+      border: none;
+
+      @media all and (max-width: 1825px) {
+        width: 70%;
+      }
+    }
+  }
+}
+
+.auth-content__content {
+  @include flexCenter(row);
+  align-items: flex-start;
+  margin-bottom: auto;
+
+  @media all and (max-width: 1825px) {
+    gap: 1.5rem;
+  }
+
+  #{&}__desc {
+    @include flexCenter(column);
+    gap: 3rem;
+    font-size: 2.5rem;
+    padding-bottom: auto;
+
+    @media all and (max-width: 1825px) {
+      font-size: 2rem;
+    }
+
+    @media all and (max-width: mediaScreenSize("laptopL")) {
+      font-size: 1.5rem;
+    }
+  }
+}

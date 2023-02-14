@@ -1,0 +1,22 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions" as *;
+
+@mixin flexCenter($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin pageLayout() {
+  background-color: color(primary);
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  padding: 6rem 3rem;
+  gap: 5rem;
+
+  @media all and (max-width: mediaScreenSize("mobileL")) {
+    padding: 4rem 1.5rem;
+  }
+}

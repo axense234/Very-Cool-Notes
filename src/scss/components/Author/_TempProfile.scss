@@ -1,0 +1,248 @@
+@use "../../abstracts" as *;
+
+.profile-container {
+  @include flexCenter(row);
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-height: 100%;
+  background-color: color(silvery);
+  padding: 6rem;
+
+  @media all and (max-width: 1650px) {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media all and (max-width: mediaScreenSize("tablet")) {
+    padding: 6rem 1.5rem;
+  }
+
+  #{&}__details {
+    @include flexCenter(column);
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 25%;
+    gap: 0.75rem;
+
+    @media all and (max-width: 1650px) {
+      width: 50%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    button {
+      width: 50%;
+      border: none;
+      background-color: color(secondary);
+      text-align: center;
+      padding: 1rem 2rem;
+      color: color(primary);
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      transition: transform 0.3s;
+
+      @media all and (max-width: mediaScreenSize("tablet")) {
+        width: 80%;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 800;
+    }
+  }
+
+  #{&}__content {
+    @include flexCenter(column);
+    width: 70%;
+    height: 100%;
+    gap: 5rem;
+
+    @media all and (max-width: 1650px) {
+      width: 100%;
+    }
+  }
+
+  #{&}__options {
+    @include flexCenter(row);
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 1rem 0;
+    background-color: color(secondary);
+    border-radius: 1rem;
+
+    @media all and (max-width: mediaScreenSize("laptop")) {
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    button {
+      background-color: color(primary);
+      color: black;
+      font-size: 1rem;
+      font-weight: bolder;
+      border: none;
+      border-radius: 1rem;
+      padding: 0.5rem 1rem;
+      letter-spacing: 2px;
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  #{&}__options-content {
+    @include flexCenter(row);
+    height: 100%;
+    width: 100%;
+    padding: 3rem;
+    background-color: color(secondary);
+    border-radius: 1rem;
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      padding: 1rem;
+    }
+
+    @media all and (max-width: mediaScreenSize("mobileM")) {
+      padding: 0.25rem;
+    }
+  }
+
+  #{&}__settings {
+    @include flexCenter(row);
+    flex-wrap: wrap;
+    gap: 3rem;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+
+    li {
+      @include flexCenter(row);
+      width: 25%;
+      color: color(primary);
+    }
+  }
+
+  #{&}__notes {
+    @include flexCenter(row);
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll;
+
+    ::-webkit-scrollbar-thumb {
+      background: red;
+    }
+
+    .note-container {
+      min-height: 25rem;
+      max-height: 25rem;
+
+      @media all and (max-width: mediaScreenSize("mobileM")) {
+        min-height: 32.5rem;
+        max-height: 32.5rem;
+      }
+    }
+  }
+}
+
+.profile-details-edit-form {
+  @include flexCenter(column);
+  align-items: flex-start;
+  position: relative;
+  gap: 0.5rem;
+  width: 100%;
+
+  @media all and (max-width: 1650px) {
+    align-items: center;
+  }
+
+  input {
+    font-size: 2rem;
+    font-weight: 800;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  #editProfileImage {
+    width: 40%;
+  }
+
+  svg {
+    align-self: flex-end;
+    color: red;
+    font-size: 2rem;
+    transition: transform 0.3s;
+    position: absolute;
+    top: 0;
+    right: 2rem;
+
+    &:hover {
+      transform: scale(1.5);
+    }
+  }
+
+  #{&}__image {
+    @include flexCenter(column);
+
+    img {
+      transition: transform 0.3s;
+      border-radius: 50%;
+
+      @media all and (max-width: mediaScreenSize("tablet")) {
+        width: 250px;
+        height: 250px;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    input {
+      position: absolute;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  }
+}
+
+.profile-details-used-form {
+  @include flexCenter(column);
+  gap: 0.5rem;
+  width: 100%;
+  align-items: flex-start;
+
+  h2 {
+    word-break: break-all;
+  }
+
+  img {
+    border-radius: 50%;
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}

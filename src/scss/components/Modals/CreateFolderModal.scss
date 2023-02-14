@@ -1,0 +1,64 @@
+@use "../../abstracts" as *;
+
+.create-folder-modal-container {
+  @include flexCenter(column);
+  position: absolute;
+  align-items: flex-start;
+  padding: 0.75rem;
+  top: 0;
+  left: 0;
+  height: 12.5rem;
+  border-radius: 1rem;
+  color: color(primary);
+  border: 3px solid white;
+  background-color: color(secondary);
+  margin-top: -14rem;
+  margin-left: -5.5rem;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s;
+
+  @media all and (max-width: mediaScreenSize("laptop")) {
+    margin-left: -3rem;
+  }
+
+  @media all and (max-width: mediaScreenSize("mobileL")) {
+    margin-left: -2rem;
+  }
+
+  #create-folder-modal {
+    align-self: flex-end;
+    color: red;
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: 5px;
+
+    @media all and (max-width: mediaScreenSize("mobileL")) {
+      font-size: 1.5rem;
+    }
+  }
+
+  #{&}__form {
+    @include flexCenter(column);
+    align-items: flex-start;
+
+    label {
+      font-size: 1.25rem;
+      letter-spacing: 2.5px;
+
+      @media all and (max-width: mediaScreenSize("mobileL")) {
+        font-size: 1rem;
+      }
+    }
+
+    input {
+      border-radius: 0.5rem;
+      border: 1.5px solid color(primary);
+      padding: 0.25rem;
+    }
+  }
+}

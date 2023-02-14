@@ -1,0 +1,255 @@
+@use "../../abstracts" as *;
+
+.gallery-container {
+  @include flexCenter(column);
+  @include pageLayout();
+
+  #{&}__content {
+    @include flexCenter(column);
+    width: 100%;
+    gap: 5rem;
+    margin: 6rem 0;
+
+    @media all and (max-width: mediaScreenSize("laptop")) {
+      margin: 2rem 0;
+    }
+  }
+
+  #{&}__options {
+    @include flexCenter(row);
+    justify-content: space-between;
+    width: 100%;
+    height: 7.8rem;
+    background-color: color(secondary);
+    border-radius: 1.6rem;
+    padding: 2rem 3rem;
+
+    @media all and (max-width: mediaScreenSize("laptop")) {
+      padding: 1rem 2rem;
+    }
+
+    @media all and (max-width: mediaScreenSize("mobileL")) {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  #{&}__choose-folder {
+    @include flexCenter(row);
+    position: relative;
+    gap: 1.5rem;
+
+    svg {
+      font-size: 3rem;
+      transition: transform 0.3s;
+      color: white;
+
+      @media all and (max-width: mediaScreenSize("mobileL")) {
+        font-size: 2rem;
+      }
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  #{&}__choose-folder-form {
+    @include flexCenter(row);
+    gap: 1rem;
+    border: 1px solid black;
+    background-color: color(silvery);
+    padding: 0.5rem 1rem;
+    border: 2px solid color(primary);
+    border-radius: 1.2rem;
+    font-weight: bolder;
+    letter-spacing: 2px;
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      font-size: 0.75rem;
+    }
+
+    @media all and (max-width: mediaScreenSize("mobileL")) {
+      font-size: 0.5rem;
+    }
+
+    select {
+      background-color: inherit;
+      border: none;
+      border-radius: 1rem;
+      font-size: 1rem;
+      font-weight: bolder;
+
+      @media all and (max-width: mediaScreenSize("tablet")) {
+        font-size: 0.75rem;
+      }
+      @media all and (max-width: mediaScreenSize("mobileL")) {
+        font-size: 0.5rem;
+      }
+    }
+  }
+
+  #{&}__sort-notes {
+    @include flexCenter(row);
+    margin-left: auto;
+    margin-right: 2rem;
+
+    svg {
+      font-size: 3rem;
+      color: color(primary);
+    }
+
+    select {
+      background-color: color(silvery);
+      border: none;
+      border-radius: 1rem;
+      font-size: 1rem;
+      font-weight: bolder;
+      padding: 0.5rem 1rem;
+      border: 2px solid color(primary);
+      border-radius: 1.2rem;
+      letter-spacing: 2px;
+    }
+  }
+
+  #{&}__search-notes-control {
+    @include flexCenter(row);
+    width: 20%;
+
+    input {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      background-color: color(silvery);
+      border: 2px solid color(primary);
+      border-radius: 1rem;
+      font-size: 1rem;
+      padding-right: 2rem;
+
+      &::placeholder {
+        color: black;
+        font-weight: bolder;
+      }
+    }
+
+    label > button {
+      margin-left: -2rem;
+      font-size: 1rem;
+      background: none;
+      border: none;
+      border-radius: 1rem;
+      padding: 0.25rem;
+
+      &:focus-visible {
+        outline: 2px solid black;
+      }
+    }
+  }
+
+  // FOLDERS
+
+  #{&}__folders-container {
+    @include flexCenter(column);
+    width: 100%;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  #{&}__folders-container-title {
+    @include flexCenter(row);
+    justify-content: flex-start;
+    gap: 0.5rem;
+    height: 3.125rem;
+    padding: 1rem 3rem;
+    background-color: color(secondary);
+    width: 100%;
+    border-radius: 1.5rem;
+    color: color(silvery);
+
+    svg {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  #{&}__folders {
+    @include flexCenter(row);
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    list-style: none;
+    padding: 0 2rem;
+
+    @media all and (max-width: mediaScreenSize("laptop")) {
+      padding: 0 1rem;
+    }
+
+    @media all and (max-width: mediaScreenSize("mobileM")) {
+      padding: 0 0.3rem;
+    }
+
+    #no-folders {
+      font-size: 2rem;
+      color: color(secondary);
+
+      button,
+      a {
+        font-size: 2rem;
+        color: color(secondary);
+        background-color: inherit;
+        border: none;
+        text-decoration: none;
+      }
+    }
+  }
+
+  // NOTES
+
+  #{&}__notes-container {
+    @extend .gallery-container__folders-container;
+  }
+
+  #{&}__notes-container-title {
+    @extend .gallery-container__folders-container-title;
+  }
+
+  #{&}__notes {
+    @extend .gallery-container__folders;
+    align-items: flex-start;
+    gap: 2rem;
+
+    .note-container {
+      width: 22.5%;
+      min-width: 22.5%;
+      height: 22.5rem;
+
+      @media all and (max-width: mediaScreenSize("laptopL")) {
+        width: 30%;
+        min-width: 30%;
+        height: 25rem;
+      }
+
+      @media all and (max-width: mediaScreenSize("laptop")) {
+        width: 45%;
+        min-width: 45%;
+      }
+
+      @media all and (max-width: mediaScreenSize("tablet")) {
+        width: 90%;
+        min-width: 90%;
+        height: 22.5rem;
+      }
+
+      @media all and (max-width: mediaScreenSize("mobileL")) {
+        width: 100%;
+        min-width: 100%;
+        height: 25rem;
+      }
+      @media all and (max-width: mediaScreenSize("mobileM")) {
+        height: 30rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@use "../../abstracts" as *;
+
+.label-folder-modal-container {
+  @include flexCenter(column);
+  position: absolute;
+  border: 2px solid black;
+  padding: 1rem;
+  background-color: color(silvery);
+  color: black;
+  border-radius: 0.5rem;
+  margin-top: -10rem;
+  width: 14.5rem;
+
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s;
+
+  @media all and (max-width: mediaScreenSize("laptopL")) {
+    transform: scale(0.75);
+  }
+
+  @media all and (max-width: mediaScreenSize("mobileM")) {
+    transform: scale(0.5);
+  }
+
+  svg {
+    color: red;
+    transition: transform 0.3s;
+    align-self: flex-end;
+    font-size: 1.5rem;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  #{&}__form {
+    @include flexCenter(column);
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+
+    label {
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+    }
+
+    input {
+      border-radius: 0.5rem;
+      border: 3px solid color(secondary);
+      padding: 0.25rem 0.75rem;
+    }
+
+    button {
+      padding: 0.25rem 0.75rem;
+      background-color: color(primary);
+      border-radius: 0.5rem;
+    }
+  }
+}

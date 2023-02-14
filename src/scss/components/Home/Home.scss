@@ -1,0 +1,58 @@
+@use "../../abstracts" as *;
+@use "./NoteExamples";
+
+.home-container {
+  @include flexCenter(column);
+  @include pageLayout();
+  justify-content: flex-start;
+  gap: 10rem;
+
+  #{&}__directions-container {
+    @include flexCenter(column);
+    width: 100%;
+    gap: 3rem;
+  }
+
+  #{&}__directions {
+    @include flexCenter(row);
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin: 6rem 0;
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      margin: 2rem 0;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    p {
+      max-width: 20%;
+      font-size: 2rem;
+      letter-spacing: 2px;
+
+      @media all and (max-width: mediaScreenSize("laptopL")) {
+        font-size: 1.5rem;
+      }
+
+      @media all and (max-width: mediaScreenSize("tablet")) {
+        font-size: 1.3rem;
+        max-width: 100%;
+      }
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  #{&}__rcn {
+    @include flexCenter(column);
+    width: 100%;
+  }
+}

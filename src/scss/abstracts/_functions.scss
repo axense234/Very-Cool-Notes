@@ -1,0 +1,9 @@
+@use "./variables" as *;
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+@function mediaScreenSize($media-size) {
+  @return map-get($mediaSizes, $media-size);
+}

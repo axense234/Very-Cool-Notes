@@ -1,0 +1,64 @@
+@use "../../abstracts" as *;
+
+.delete-folder-modal {
+  @include flexCenter(row);
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  color: red;
+
+  width: min-content;
+  height: 20%;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.folder-container {
+  @include flexCenter(column);
+  position: relative;
+  width: 10%;
+  transition: transform 0.3s;
+
+  @media all and (max-width: mediaScreenSize("laptop")) {
+    width: 15%;
+  }
+
+  @media all and (max-width: mediaScreenSize("tablet")) {
+    width: 25%;
+  }
+
+  @media all and (max-width: mediaScreenSize("mobileL")) {
+    width: 33%;
+  }
+
+  @media all and (max-width: mediaScreenSize("mobileL")) {
+    width: 45%;
+  }
+
+  #{&}__icon {
+    width: 100%;
+    height: 100%;
+  }
+
+  p {
+    position: absolute;
+    top: 50%;
+    font-size: 1rem;
+    word-break: break-all;
+
+    @media all and (max-width: mediaScreenSize("laptopL")) {
+      font-size: 0.65rem;
+    }
+
+    @media all and (max-width: mediaScreenSize("tablet")) {
+      font-size: 0.6rem;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

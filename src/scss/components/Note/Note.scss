@@ -1,0 +1,106 @@
+@use "../../abstracts" as *;
+
+.note-container {
+  @include flexCenter(column);
+  width: 30%;
+  min-width: 30%;
+  height: auto;
+  justify-content: flex-start;
+  background-color: color(paper);
+  border: 1px solid black;
+  border-radius: 1rem;
+  gap: 1rem;
+  text-decoration: none;
+  color: black;
+  position: relative;
+
+  @media all and (max-width: mediaScreenSize("laptop")) {
+    width: 40%;
+    min-width: 40%;
+  }
+
+  @media all and (max-width: mediaScreenSize("laptop")) {
+    width: 75%;
+    min-width: 75%;
+  }
+
+  @media all and (max-width: mediaScreenSize("mobileL")) {
+    width: 90%;
+    min-width: 90%;
+  }
+
+  #{&}__info {
+    @include flexCenter(row);
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.5rem 1rem;
+  }
+
+  #{&}__author {
+    @include flexCenter(row);
+    font-size: 0.75rem;
+    gap: 0.5rem;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  #{&}__date {
+    @extend .note-container__author;
+  }
+
+  #{&}__content {
+    @include flexCenter(column);
+    width: 100%;
+    gap: 1rem;
+  }
+
+  #{&}__title {
+    @include flexCenter(column);
+    width: 100%;
+    text-decoration: none;
+
+    h3 {
+      font-size: 1.5rem;
+      letter-spacing: 1.25px;
+      text-align: center;
+      color: black;
+      word-break: break-all;
+    }
+
+    hr {
+      width: 40%;
+      height: 3px;
+      border: none;
+      background-color: black;
+    }
+  }
+
+  #{&}__note-content {
+    @include flexCenter(column);
+    word-break: break-all;
+    width: 100%;
+    padding: 1.5rem;
+    list-style: none;
+    align-items: flex-start;
+  }
+
+  .rc-line {
+    @include flexCenter(column);
+    gap: 0.5rem;
+    width: 100%;
+    align-items: flex-start;
+
+    hr {
+      width: 100%;
+      height: 3px;
+      border: none;
+      background-color: black;
+    }
+  }
+}

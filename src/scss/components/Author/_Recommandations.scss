@@ -1,0 +1,27 @@
+@use "../../abstracts" as *;
+
+.recommandations-container {
+  @include flexCenter(column);
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  margin-bottom: auto;
+  padding: 5rem 6rem;
+  gap: 5rem;
+
+  @media all and (max-width: mediaScreenSize("tablet")) {
+    padding: 5rem 3rem;
+  }
+}
+
+.recommandations-container__authors {
+  @include flexCenter(row);
+  width: 100%;
+  padding: 0 5rem;
+  gap: 7.5rem;
+  flex-wrap: wrap;
+
+  @media all and (max-width: mediaScreenSize("tablet")) {
+    padding: 0 2.5rem;
+  }
+}
