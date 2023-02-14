@@ -157,6 +157,7 @@ export const createAuthor = createAsyncThunk<
     console.log(data, "data received");
     return data as AuthorResponsePayload;
   } catch (error) {
+    console.log(error);
     return error as AxiosError;
   }
 });
