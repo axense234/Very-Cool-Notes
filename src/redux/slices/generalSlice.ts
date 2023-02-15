@@ -27,6 +27,7 @@ import { State } from "../api/store";
 
 type initialStateType = {
   loadingProfile: "IDLE" | "PENDING" | "SUCCEDED" | "FAILED";
+  loadingAuthorization: "IDLE" | "PENDING" | "SUCCEDED" | "FAILED";
   authFormModal: ModalType;
   profile: AuthorType;
   noteOptions: NoteOptionObject;
@@ -57,6 +58,7 @@ type initialStateType = {
 const initialState = {
   // Loading Profile State
   loadingProfile: "IDLE",
+  loadingAuthorization: "IDLE",
   // Auth Form Modal
   authFormModal: {
     show: false,
@@ -151,13 +153,10 @@ export const createAuthor = createAsyncThunk<
   AuthorType
 >("/authors/createAuthor", async (mutableBody) => {
   try {
-    console.log("try me", mutableBody);
     mutableBody.username = mutableBody.email;
     const { data } = await axiosInstance.post("/authors/signup", mutableBody);
-    console.log(data, "data received");
     return data as AuthorResponsePayload;
   } catch (error) {
-    console.log(error);
     return error as AxiosError;
   }
 });
@@ -338,11 +337,12 @@ const generalSlice = createSlice({
   },
   extraReducers(builder) {
     builder
+      .addCase(createAuthor.pending, (state, action) => {
+        state.loadingAuthorization = "PENDING";
+      })
       .addCase(createAuthor.fulfilled, (state, action) => {
         const { author } = action.payload as AuthorResponsePayload;
         const { response } = action.payload as AxiosError;
-
-        console.log(author, response);
 
         // EMAIL ALREADY EXISTS
         if (response && response.statusText === "Bad Request") {
@@ -358,8 +358,11 @@ const generalSlice = createSlice({
           state.profile = author;
           window.location.href = "/home";
         }
+        state.loadingAuthorization = "SUCCEDED";
       })
-
+      .addCase(loginAuthor.pending, (state, action) => {
+        state.loadingAuthorization = "PENDING";
+      })
       .addCase(loginAuthor.fulfilled, (state, action) => {
         const { author } = action.payload as AuthorResponsePayload;
         const { response } = action.payload as AxiosError;
@@ -391,6 +394,7 @@ const generalSlice = createSlice({
           state.profile = author;
           window.location.href = "/home";
         }
+        state.loadingAuthorization = "SUCCEDED";
       })
       .addCase(getProfile.pending, (state, action) => {
         state.loadingProfile = "PENDING";
@@ -398,8 +402,6 @@ const generalSlice = createSlice({
       .addCase(getProfile.fulfilled, (state, action) => {
         const { author } = action.payload as AuthorResponsePayload;
         const { response } = action.payload as AxiosError;
-
-        console.log(author, response);
 
         if (
           response &&
@@ -437,6 +439,9 @@ export const selectProfile = (state: State) => state.general.profile;
 
 export const selectLoadingProfile = (state: State) =>
   state.general.loadingProfile;
+
+export const selectLoadingAuthorization = (state: State) =>
+  state.general.loadingAuthorization;
 
 export const selectNoteOptions = (state: State) => state.general.noteOptions;
 

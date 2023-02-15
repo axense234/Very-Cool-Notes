@@ -234,6 +234,10 @@
   width: 100%;
   align-items: flex-start;
 
+  @media all and (max-width: 1650px) {
+    align-items: center;
+  }
+
   h2 {
     word-break: break-all;
   }

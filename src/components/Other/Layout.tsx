@@ -12,12 +12,14 @@ import "../../scss/globals.scss";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import {
   getProfile,
+  selectLoadingAuthorization,
   selectLoadingProfile,
 } from "../../redux/slices/generalSlice";
 
 const Layout: React.FC = () => {
   const dispatch = useAppDispatch();
   const loadingProfileState = useAppSelector(selectLoadingProfile);
+  const loadingAuthorization = useAppSelector(selectLoadingAuthorization);
 
   useEffect(() => {
     if (loadingProfileState === "IDLE") {
@@ -25,7 +27,11 @@ const Layout: React.FC = () => {
     }
   }, [dispatch]);
 
-  if (loadingProfileState === "IDLE" || loadingProfileState === "PENDING") {
+  if (
+    loadingProfileState === "IDLE" ||
+    loadingProfileState === "PENDING" ||
+    loadingAuthorization === "PENDING"
+  ) {
     return <FullLoading />;
   }
 

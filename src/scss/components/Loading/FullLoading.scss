@@ -9,4 +9,12 @@
   font-size: 10rem;
   padding-top: 10rem;
   color: color(secondary);
+
+  @media all and (max-width: mediaScreenSize("tablet")) {
+    font-size: 6rem;
+  }
+
+  @media all and (max-width: 500px) {
+    font-size: 4rem;
+  }
 }
