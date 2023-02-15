@@ -220,6 +220,12 @@ const generalSlice = createSlice({
     updateAuthFormModal(state, action: PayloadAction<ModalType>) {
       state.authFormModal = action.payload;
     },
+    setLoadingAuthorization(
+      state,
+      action: PayloadAction<"IDLE" | "PENDING" | "SUCCEDED" | "FAILED">
+    ) {
+      state.loadingAuthorization = action.payload;
+    },
     updateNoteOptions(state, action: PayloadAction<NoteOptionObjectProp>) {
       state.noteOptions = {
         ...state.noteOptions,
@@ -497,6 +503,7 @@ export const selectSearchResultsQuery = (state: State) =>
 // ACTIONS
 export const {
   updateAuthFormModal,
+  setLoadingAuthorization,
   updateNoteOptions,
   updateNoteContent,
   resetNoteSettings,

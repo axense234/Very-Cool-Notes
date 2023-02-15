@@ -8,6 +8,7 @@ import {
   loginAuthor,
   selectAuthFormModal,
   selectLoadingProfile,
+  setLoadingAuthorization,
   updateAuthFormModal,
 } from "../../redux/slices/generalSlice";
 // Components
@@ -45,6 +46,7 @@ const AuthForm: React.FC<Auth> = ({ type }) => {
     e.preventDefault();
 
     const { password } = tempAuthDetails;
+    setLoadingAuthorization("PENDING");
 
     if (password !== verPassword) {
       dispatch(
