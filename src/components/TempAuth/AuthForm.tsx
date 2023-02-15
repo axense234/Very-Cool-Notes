@@ -46,7 +46,7 @@ const AuthForm: React.FC<Auth> = ({ type }) => {
     e.preventDefault();
 
     const { password } = tempAuthDetails;
-    setLoadingAuthorization("PENDING");
+    dispatch(setLoadingAuthorization("PENDING"));
 
     if (password !== verPassword) {
       dispatch(
