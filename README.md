@@ -15,7 +15,6 @@ to your account to have access to creating notes / viewing notes / creating fold
 
 - check package.json for details
 - also check out the [backend](https://github.com/axense234/Notes-NETPPR-API)
-- if are on windows you will need WSL(windows subsystem for linux) installed because you will need to start up a redis server on such terminal([click here for tutorial](https://learn.microsoft.com/en-us/windows/wsl/install))
 
 ### Installing
 
@@ -27,16 +26,8 @@ npm install
 
 ### Executing program
 
-1. Run the frontend locally
-
 ```
 npm start
-```
-
-2. Open up WSL cmd and run the following
-
-```
-redis-server
 ```
 
 ## Authors
@@ -58,3 +49,7 @@ This project is licensed under the GNU License - see the LICENSE.md file for det
 ## Acknowledgments
 
 - just wanted to test out my skills with the MERN Stack using Typescript and Sass
+
+```
+
+```
