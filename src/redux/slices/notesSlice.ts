@@ -139,7 +139,7 @@ const notesSlice = createSlice({
           });
           notesAdapter.upsertMany(state, notes as NoteType[]);
         }
-        state.loadingNotes = "PENDING";
+        state.loadingNotes = "SUCCEDED";
       })
       .addCase(getNotes.rejected, (state, action) => {
         state.loadingNotes = "FAILED";

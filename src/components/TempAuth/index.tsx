@@ -17,8 +17,8 @@ const TempAuth: React.FC<Auth> = ({ type }) => {
   }
   return (
     <div className='temp-auth-page'>
-      <TempAuthContent type={type} />
       <AuthForm type={type} />
+      <TempAuthContent type={type} />
     </div>
   );
 };
